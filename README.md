@@ -1,16 +1,23 @@
-# test_app
+# MyApp
 
-A new Flutter project.
+MyApp is a mobile application developed with Flutter that allows you to perform various actions related to movie tracking and playlists.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Search Movies**: Allows you to search for movies using the TMDB API and display detailed information about each movie.
+- **Playlist Management**: Enables you to create and manage custom playlists to organize your movies.
+- **Movie Details**: Provides in-depth information about movies, including synopsis, cast, ratings, and more.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Clone this repository to your local machine.
+2. Make sure you have Flutter installed and configured correctly.
+3. Run `flutter pub get` to fetch all project dependencies.
+4. Connect your mobile device or use an emulator to run the application with `flutter run`.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
+## Contribution
+
+## License
+
