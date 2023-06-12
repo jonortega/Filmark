@@ -1,6 +1,6 @@
-# MyApp
+# Filmark
 
-MyApp is a mobile application developed with Flutter that allows you to perform various actions related to movie tracking and playlists.
+Filmark is a mobile application developed with Flutter that allows you to perform various actions related to movie tracking and playlists.
 
 ## Features
 
