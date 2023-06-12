@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/app_provider.dart';
 
-class CustomImput extends StatefulWidget {
+class CustomInput extends StatefulWidget {
+  const CustomInput({super.key});
+
   @override
-  State<CustomImput> createState() => _CustomImputState();
+  State<CustomInput> createState() => _CustomInputState();
 }
 
-class _CustomImputState extends State<CustomImput> {
-  final TextEditingController _textEditingController = TextEditingController();
+class _CustomInputState extends State<CustomInput> {
+  late TextEditingController _textEditingController;
+  // ignore: unused_field
+  late String _displayText;
+
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController = TextEditingController();
+    _displayText = Provider.of<AppProvider>(context, listen: false).displayText;
+  }
 
   @override
   void dispose() {
@@ -52,6 +65,11 @@ class _CustomImputState extends State<CustomImput> {
     return TextField(
       controller: _textEditingController,
       decoration: _buildInputDecoration('Introduce el nuevo texto', 'Texto'),
+      onChanged: (value) {
+        setState(() {
+          _displayText = value;
+        });
+      },
     );
   }
 }

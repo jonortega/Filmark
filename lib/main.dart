@@ -1,26 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'screens/search_screen.dart';
 import 'screens/lists_screen.dart';
-// import 'widgets/';
+import 'providers/app_provider.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  MyAppState createState() => MyAppState();
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => AppProvider(),
+      child: MaterialApp(
+        title: 'Mi App',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        home: const HomeScreen(),
+      ),
+    );
+  }
 }
 
-// Paginas de la app
 enum Screen { search, lists }
 
-class MyAppState extends State<MyApp> {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   Screen _currentScreen = Screen.search;
 
-  // Navegar entre las dos paginas de la app
   void _onItemTapped(int index) {
     setState(() {
       if (index == 0) {
@@ -40,30 +57,24 @@ class MyAppState extends State<MyApp> {
       currentScreen = const ListsScreen();
     }
 
-    return MaterialApp(
-      title: 'Mi App',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Mi App'),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Mi App'),
-        ),
-        body: currentScreen,
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentScreen == Screen.search ? 0 : 1,
-          onTap: _onItemTapped,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Buscar',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'Listas',
-            ),
-          ],
-        ),
+      body: currentScreen,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentScreen == Screen.search ? 0 : 1,
+        onTap: _onItemTapped,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Buscar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'Listas',
+          ),
+        ],
       ),
     );
   }

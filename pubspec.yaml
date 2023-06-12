@@ -11,8 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Use with the CupertinoIcons class for iOS style icons.
+  provider: ^6.0.5
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
