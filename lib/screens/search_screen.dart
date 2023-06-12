@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../services/tmdb_api_wrapper.dart' as tmdb_api;
+
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
@@ -94,6 +96,11 @@ class SearchScreenState extends State<SearchScreen> {
             onPressed: _changeText,
             style: _buildButtonStyle(),
             child: const Text('Cambiar texto'),
+          ),
+          const SizedBox(height: 20),
+          const ElevatedButton(
+            onPressed: tmdb_api.fetchMovie,
+            child: Text('Obtener datos'),
           ),
         ],
       ),

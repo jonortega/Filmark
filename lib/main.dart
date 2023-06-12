@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'screens/search_screen.dart';
 import 'screens/lists_screen.dart';
-// import 'widgets/';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  // await dotenv.load();
   runApp(const MyApp());
 }
 
