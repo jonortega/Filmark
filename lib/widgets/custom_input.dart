@@ -2,32 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
 
-class CustomInput extends StatefulWidget {
-  const CustomInput({super.key});
+class CustomInput extends StatelessWidget {
+  const CustomInput({Key? key}) : super(key: key);
 
   @override
-  State<CustomInput> createState() => _CustomInputState();
-}
+  Widget build(BuildContext context) {
+    final appProvider = Provider.of<AppProvider>(context);
 
-class _CustomInputState extends State<CustomInput> {
-  late TextEditingController _textEditingController;
-  // ignore: unused_field
-  late String _displayText;
-
-  @override
-  void initState() {
-    super.initState();
-    _textEditingController = TextEditingController();
-    _displayText = Provider.of<AppProvider>(context, listen: false).displayText;
+    return TextField(
+      controller: appProvider.textEditingController,
+      decoration: _buildInputDecoration('Introduce el nuevo texto', 'Texto'),
+      onChanged: (value) {
+        appProvider.displayText = value;
+      },
+    );
   }
 
-  @override
-  void dispose() {
-    _textEditingController.dispose();
-    super.dispose();
-  }
-
-  // Decoracion del Input
   InputDecoration _buildInputDecoration(String labelText, String hintText) {
     return InputDecoration(
       prefixIcon: const Icon(Icons.edit),
@@ -57,19 +47,6 @@ class _CustomInputState extends State<CustomInput> {
         ),
       ),
       contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 18),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: _textEditingController,
-      decoration: _buildInputDecoration('Introduce el nuevo texto', 'Texto'),
-      onChanged: (value) {
-        setState(() {
-          _displayText = value;
-        });
-      },
     );
   }
 }

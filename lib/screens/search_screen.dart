@@ -20,7 +20,7 @@ class SearchScreen extends StatelessWidget {
             style: const TextStyle(fontSize: 24),
           ),
           const SizedBox(height: 80),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 50),
             child: CustomInput(),
           ),
