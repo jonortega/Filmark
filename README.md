@@ -8,6 +8,13 @@ Filmark is a mobile application developed with Flutter that allows you to perfor
 - **Playlist Management**: Enables you to create and manage custom playlists to organize your movies.
 - **Movie Details**: Provides in-depth information about movies, including synopsis, cast, ratings, and more.
 
+## TODO list
+
+- [ ] Obtain the Key from the .env.
+- [ ] Tratar los datos recibidos en la response.
+- [ ] Visualize the data in some way.
+- [ ] Dejar que se pueda introducir cualquier dato en el request.
+
 ## Installation
 
 1. Clone this repository to your local machine.
